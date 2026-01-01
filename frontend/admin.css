@@ -1,0 +1,203 @@
+/* admin.css – layout + tables for Admin Panel (modern theme) */
+
+/* Header tweaks live in style.css; this file handles admin layout + tables */
+
+/* Category manager layout: left form, right list */
+.category-manager {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  gap: 18px;
+  align-items: flex-start;
+}
+
+/* Ensure cards inside admin have spacing */
+.admin-section {
+  margin-top: 18px;
+}
+
+/* ---------- Table styling (Users, Categories, Master Items) ---------- */
+.admin-section table,
+.category-manager table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ✅ Adds horizontal padding = visible gap between columns */
+.admin-section th,
+.admin-section td,
+.category-manager th,
+.category-manager td {
+  padding: 8px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.9);
+}
+
+/* ✅ High-contrast header row so headings are clearly visible */
+.admin-section thead th,
+.category-manager thead th {
+  background: rgba(15, 23, 42, 0.98);   /* dark strip behind header */
+  color: #f9fafb;                       /* bright text */
+  font-weight: 600;
+}
+
+/* Slightly dim normal cell text */
+.admin-section tbody td,
+.category-manager tbody td {
+  color: #e5e7eb;
+}
+
+/* Optional: a bit more left padding on first column */
+.admin-section table tr td:first-child,
+.admin-section table tr th:first-child {
+  padding-left: 16px;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.status-badge.active {
+  background: rgba(34, 197, 94, 0.2);
+  color: #bbf7d0;
+}
+
+.status-badge.inactive {
+  background: rgba(248, 113, 113, 0.22);
+  color: #fecaca;
+}
+
+/* Action buttons row alignment inside tables */
+.table-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Responsive layout for admin page */
+@media (max-width: 900px) {
+  .category-manager {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-section table,
+  .category-manager table {
+    font-size: 13px;
+  }
+}
+/* ========== Global Toast Styles ========== */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.toast-text {
+  font-weight: 500;
+}
+
+/* Colors */
+.toast-success {
+  background: linear-gradient(135deg, #00c853, #00bfa5);
+  color: #ffffff;
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #d50000, #ff1744);
+  color: #ffffff;
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #2962ff, #448aff);
+  color: #ffffff;
+}
+/* ========== Modern Confirm Popup ========== */
+.confirm-modal {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh; width: 100vw;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.confirm-box {
+  background: #121212;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 330px;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.confirm-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.confirm-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.confirm-btn.yes {
+  background: #ff5252;
+  color: #fff;
+}
+
+.confirm-btn.no {
+  background: #333;
+  color: #fff;
+}

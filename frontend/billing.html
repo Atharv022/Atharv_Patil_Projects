@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing / POS</title>
+
+  <!-- Global app styling -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <!-- Page-specific small layout tweaks only -->
+  <style>
+    /* Search + Category row */
+    .row-2 {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .row-2 .search-box {
+      flex: 3;   /* ~75% width */
+    }
+    .row-2 .cat-box {
+      flex: 1;   /* ~25% width */
+    }
+
+    /* Make search/category stack nicely on small screens */
+    @media (max-width: 700px) {
+      .row-2 {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    /* Summary block on the right */
+    .totals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+    }
+    .summary-lines {
+      text-align: right;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .summary-lines b {
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container pos-wrap">
+    <!-- Header -->
+    <header>
+      <h1><i class="fas fa-cash-register"></i> Billing / POS</h1>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-secondary" title="Back to Inventory">
+          <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <button id="logoutBtn" class="btn btn-delete" title="Logout">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Main grid: left = Add items, right = Cart -->
+    <div class="grid">
+      <!-- LEFT: Add Items -->
+      <section class="card">
+        <h2>Add Items</h2>
+
+        <!-- Search + Category -->
+        <div class="row-2">
+          <div class="form-group search-box">
+            <label>Search</label>
+            <input id="itemSearch"
+                   type="text"
+                   class="pos-search-input"
+                   placeholder="Type name, brand..." />
+          </div>
+          <div class="form-group cat-box">
+            <label>Category</label>
+            <select id="categoryFilter">
+              <!-- JS will overwrite these with real categories -->
+              <option value="">All</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Snacks">Snacks</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Item select -->
+        <div class="form-group">
+          <label>Select Item</label>
+          <select id="itemSelect">
+            <option value="">-- Select an item --</option>
+          </select>
+        </div>
+
+        <!-- Pack / Variant -->
+        <div class="form-group">
+          <label>Select Pack / Variant</label>
+          <select id="variantSelect">
+            <option value="">-- Select pack / quantity --</option>
+          </select>
+          <small class="muted">
+            After Step 2, this will list item packs like 500 g, 1 kg, etc.
+          </small>
+        </div>
+
+        <!-- Quantity + Unit Price -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantity</label>
+            <input id="qtyInput" type="number" min="1" value="1" />
+          </div>
+          <div class="form-group">
+            <label>Unit Price (₹)</label>
+            <input id="priceInput" type="number" placeholder="Auto-filled" />
+          </div>
+        </div>
+
+        <!-- Add to cart -->
+        <button id="addToCartBtn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+      </section>
+
+      <!-- RIGHT: Cart -->
+      <section class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h2>Cart</h2>
+          <button id="clearCartBtn" class="btn btn-delete btn-sm" title="Clear cart">
+            Clear
+          </button>
+        </div>
+
+        <!-- Cart table -->
+        <div style="max-height: 300px; overflow-y: auto; margin-top: 8px;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="right">Qty</th>
+                <th class="right">Unit Price</th>
+                <th class="right">Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cartBody">
+              <!-- Filled by billing.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Discount / Tax / Customer vs Totals -->
+        <div class="totals-grid">
+          <div>
+            <div class="form-group">
+              <label>Discount (₹)</label>
+              <input id="discountInput" type="number" value="0" />
+            </div>
+            <div class="form-group">
+              <label>Tax (%)</label>
+              <input id="taxInput" type="number" value="0" />
+            </div>
+            <div class="form-group">
+              <label>Customer</label>
+              <input id="customerName" type="text" placeholder="Walk-in" />
+            </div>
+          </div>
+
+          <div class="summary-lines">
+            <div>Subtotal: ₹ <span id="subtotalLbl">0.00</span></div>
+            <div>Discount: -₹ <span id="discountLbl">0.00</span></div>
+            <div>Tax: +₹ <span id="taxLbl">0.00</span></div>
+            <hr>
+            <div><b>Total: ₹ <span id="totalLbl">0.00</span></b></div>
+          </div>
+        </div>
+
+        <!-- Payment buttons -->
+        <div style="margin-top: 20px; display: flex; gap: 10px;">
+          <button id="checkoutCashBtn" class="btn btn-primary" style="flex: 1;">
+            Cash Pay
+          </button>
+          <button id="checkoutUpiBtn" class="btn btn-secondary" style="flex: 1;">
+            UPI Pay
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Billing logic -->
+  <script src="billing.js"></script>
+
+  <!-- Single global Toast (used by billing.js) -->
+  <div id="toast" class="toast toast-success">
+    <div class="toast-icon">✓</div>
+    <div class="toast-text" id="toastMessage">Message</div>
+  </div>
+
+  <!-- Modern confirm modal (used by showConfirm in billing.js) -->
+  <div id="confirmModal" class="confirm-modal">
+    <div class="confirm-box">
+      <p id="confirmMessage">Are you sure?</p>
+      <div class="confirm-actions">
+        <button id="confirmYes" class="confirm-btn yes">Yes</button>
+        <button id="confirmNo" class="confirm-btn no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

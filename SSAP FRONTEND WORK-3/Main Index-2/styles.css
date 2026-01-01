@@ -1,0 +1,132 @@
+/* ======================================================================
+   Base & General Styles
+   ====================================================================== */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* ======================================================================
+   Hero Section Carousel (Fallback Styles)
+   ====================================================================== */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the caption on mobile */
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: calc(100% - 2rem); /* Full width with some padding */
+    max-width: 550px;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+/* ======================================================================
+   Section & Layout Styling
+   ====================================================================== */
+section {
+    padding: 3.5rem 0; /* Responsive padding */
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* ======================================================================
+   Component & Card Styling
+   ====================================================================== */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.styled-list li::before {
+    content: "\2713"; /* Checkmark icon */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+/* ======================================================================
+   Navigation & Header
+   ====================================================================== */
+.active-page {
+    color: #4f46e5 !important; /* indigo-600 */
+    font-weight: 700;
+}
+
+/* ======================================================================
+   Media Queries for Responsiveness
+   ====================================================================== */
+@media (min-width: 768px) {
+    /* Adjust caption for larger screens */
+    .carousel-caption {
+        left: 10%;
+        transform: translateY(-50%);
+        text-align: left;
+        width: 100%;
+    }
+    
+    /* Add underline effect for active link on desktop */
+    .active-page {
+        border-bottom: 2px solid #4f46e5;
+        padding-bottom: 2px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Styles the mobile menu when it's open */
+    #navbar-links.flex {
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        z-index: 40;
+        flex-direction: column;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    #navbar-links.flex li {
+        width: 100%;
+        text-align: center;
+    }
+
+    #navbar-links.flex a:hover {
+        background-color: #f3f4f6; /* gray-100 */
+    }
+    
+    .active-page {
+        background-color: #eef2ff; /* indigo-50 */
+        color: #4338ca !important; /* indigo-700 */
+        border-radius: 0.375rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding: 5rem 0; /* Restore larger padding for desktop */
+    }
+}

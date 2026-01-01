@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27K Audit - SSAP TECH SOLUTIONS LLP</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+
+    <header class="top-header bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
+            <div class="header-logo">
+                <a href="index.html" class="flex items-center">
+                    <img alt="SSAP Logo" class="h-12 w-auto rounded-lg shadow-md" src="images/SSAP-Logo.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x100?text=SSAP+Logo';this.alt='SSAP Logo'">
+                </a>
+            </div>
+
+            <button id="navbar-toggle" class="lg:hidden p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" type="button" aria-controls="navbar-links" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <nav id="navbar-links" class="navbar w-full lg:w-auto hidden lg:flex mt-4 lg:mt-0">
+                <ul class="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-6 text-lg font-medium">
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="index.html">Home</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="about.html">About Us</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="iso-audit.html">ISO 27k Audit</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="services.html">Our Services</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="https://md-33.webhostbox.net:2096/" target="_blank">Email</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="careers.html">Careers</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header bg-indigo-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">ISO 27001 Information Security Audits</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+                Comprehensive ISO 27001 audit services to ensure your information security management system meets international standards.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-extrabold mb-8 text-gray-900">Our ISO 27001 Audit Services</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    Our ISO/IEC 27001 audit services help organizations verify compliance with the international standard for information security management systems (ISMS). We provide objective evidence of your ISMS effectiveness and help you prepare for formal certification.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-search text-3xl text-indigo-500"></i>
+                            <h3 class="text-2xl font-bold text-gray-800 ml-4">Internal Audits</h3>
+                        </div>
+                        <ul class="styled-list space-y-3 text-gray-600">
+                            <li>Verify ISMS implementation</li>
+                            <li>Identify nonconformities</li>
+                            <li>Prepare for certification audits</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-certificate text-3xl text-indigo-500"></i>
+                            <h3 class="text-2xl font-bold text-gray-800 ml-4">Certification Audits</h3>
+                        </div>
+                        <ul class="styled-list space-y-3 text-gray-600">
+                            <li>Stage 1: Documentation review</li>
+                            <li>Stage 2: Implementation audit</li>
+                            <li>Annual surveillance audits</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shield-alt text-3xl text-indigo-500"></i>
+                            <h3 class="text-2xl font-bold text-gray-800 ml-4">Specialized Audits</h3>
+                        </div>
+                        <ul class="styled-list space-y-3 text-gray-600">
+                            <li>Supplier & vendor audits</li>
+                            <li>Cloud security compliance</li>
+                            <li>GDPR & data privacy audits</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-blue-50 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Audit Process</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">1</div>
+                            <h4 class="font-semibold text-lg mb-2">Planning</h4>
+                            <p class="text-gray-700">Define scope, objectives, and criteria.</p>
+                        </div>
+                        <div>
+                            <div class="bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">2</div>
+                            <h4 class="font-semibold text-lg mb-2">Fieldwork</h4>
+                            <p class="text-gray-700">Review documents, interview staff, and observe processes.</p>
+                        </div>
+                        <div>
+                            <div class="bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">3</div>
+                            <h4 class="font-semibold text-lg mb-2">Reporting</h4>
+                            <p class="text-gray-700">Document findings and provide actionable recommendations.</p>
+                        </div>
+                        <div>
+                            <div class="bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">4</div>
+                            <h4 class="font-semibold text-lg mb-2">Follow-up</h4>
+                            <p class="text-gray-700">Verify that corrective actions have been implemented effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-indigo-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready for Your ISO 27001 Audit?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Contact our expert audit team to discuss your requirements and get a customized proposal.
+            </p>
+            <a href="#contact" class="bg-white text-indigo-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition duration-300 text-lg">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+    
+    <section class="contact py-16 bg-white" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-12 text-gray-900 text-center">Contact Us</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-indigo-600 text-xl mt-1 mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Working Hours</h4> <p class="text-gray-600">Mon - Fri: 9:00 AM to 6:00 PM (IST)</p> </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-indigo-600 text-xl mt-1 mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Office Address</h4> <p class="text-gray-600">Room-14, "Namo-Nivas", Sr.No 36/2,Kharadi, Pune, 411014, Maharashtra, INDIA</p> </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-indigo-600 text-xl mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Mobile Number</h4> <p class="text-gray-600">+91 7720092602</p> </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-indigo-600 text-xl mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Email</h4> <a href="mailto:contact@ssaptech.com" class="text-indigo-600 hover:underline">contact@ssaptech.com</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                        <form class="space-y-4">
+                            <div> <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label> <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required> </div>
+                            <div> <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label> <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required> </div>
+                            <div> <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label> <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea> </div>
+                            <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 w-full"> Send Message </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0"> <p class="text-sm">&copy; 2025 SSAP TECH SOLUTIONS LLP. All rights reserved.</p> </div>
+                <div class="social-icons flex space-x-4">
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="Facebook"> <i class="fab fa-facebook-f text-xl"></i> </a>
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="Twitter"> <i class="fab fa-twitter text-xl"></i> </a>
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="LinkedIn"> <i class="fab fa-linkedin-in text-xl"></i> </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-24 right-4 w-[calc(100%-2rem)] sm:w-80 max-w-sm bg-white rounded-2xl shadow-lg hidden flex-col transition-transform duration-300 ease-in-out">
+        <div class="bg-indigo-600 text-white p-3 rounded-t-2xl flex justify-between items-center">
+            <span class="font-semibold">SSAP AI Assistant</span>
+            <button id="close-chat" class="text-white text-2xl hover:text-gray-200">&times;</button>
+        </div>
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-2 text-sm"></div>
+        <div class="p-3 border-t flex items-center space-x-2">
+            <input id="chat-input" type="text" placeholder="Ask me anything..." class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <button id="send-btn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"> <i class="fas fa-paper-plane"></i> </button>
+        </div>
+    </div>
+
+    <button id="chat-toggle" class="fixed bottom-4 right-4 bg-indigo-600 text-white w-16 h-16 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center">
+        <i class="fas fa-comments text-2xl"></i>
+    </button>
+    
+    <style>
+        /* Z-index fix for chatbot to appear above all elements */
+        #chatbot-container, #chat-toggle {
+            z-index: 100;
+        }
+    </style>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

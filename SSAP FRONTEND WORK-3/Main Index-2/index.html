@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAP - TECH SOLUTIONS LLP</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+
+    <header class="top-header bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
+            <div class="header-logo">
+                <a href="index.html" class="flex items-center">
+                    <img alt="SSAP Logo" class="h-12 w-auto rounded-lg shadow-md" src="images/SSAP-Logo.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x100?text=SSAP+Logo';this.alt='SSAP Logo'">
+                </a>
+            </div>
+
+            <button id="navbar-toggle" class="lg:hidden p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" type="button" aria-controls="navbar-links" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <nav id="navbar-links" class="navbar w-full lg:w-auto hidden lg:flex mt-4 lg:mt-0">
+                <ul class="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-6 text-lg font-medium">
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="index.html">Home</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="about.html">About Us</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="iso-audit.html">ISO 27k Audit</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="services.html">Our Services</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="https://md-33.webhostbox.net:2096/" target="_blank">Email</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="careers.html">Careers</a></li>
+                    <li><a class="menu text-gray-700 hover:text-indigo-600 transition duration-300 px-3 py-2 rounded-md" href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="slider relative h-[70vh] md:h-screen overflow-hidden" id="home">
+        <div class="relative w-full h-full" id="hero-carousel">
+            
+            <div class="carousel-item active h-full">
+                <img alt="Design & Development" src="images/slide-one1.jpg" class="w-full h-full object-cover">
+                <div class="carousel-caption">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Design & Development</h2>
+                    <p class="text-base sm:text-lg md:text-xl leading-relaxed">Software design, development, maintenance & implementation, Website designing, Mobile App & Open Source Development</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item h-full">
+                <img alt="Network Security" src="images/slide-two2.jpg" class="w-full h-full object-cover">
+                <div class="carousel-caption">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Network Security</h1>
+                    <p class="text-base sm:text-lg md:text-xl leading-relaxed">Enterprise Network & Security, Datacenter, Telecom, Enterprise Software Development & Consultancy</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item h-full">
+                <img alt="Consulting" src="images/slide-three3.jpg" class="w-full h-full object-cover">
+                <div class="carousel-caption">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Consulting</h1>
+                    <p class="text-base sm:text-lg md:text-xl leading-relaxed">All types of Management consulting</p>
+                </div>
+            </div>
+        </div>
+
+        <button id="carousel-prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-20" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left text-2xl"></i>
+        </button>
+        <button id="carousel-next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-20" aria-label="Next Slide">
+            <i class="fas fa-chevron-right text-2xl"></i>
+        </button>
+    </section>
+
+    <style>
+        .carousel-item {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; visibility: hidden;
+            transition: opacity 1.2s ease-in-out, visibility 1.2s;
+            z-index: 1;
+        }
+        .carousel-item.active {
+            opacity: 1; visibility: visible; z-index: 10;
+        }
+        .carousel-caption { z-index: 11; }
+
+        /* Z-index fix for chatbot to appear above all elements */
+        #chatbot-container, #chat-toggle {
+            z-index: 100;
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentSlide = 0;
+        const carousel = document.getElementById('hero-carousel');
+        const slides = carousel.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        const nextButton = document.getElementById('carousel-next-btn');
+        const prevButton = document.getElementById('carousel-prev-btn');
+        let slideInterval;
+
+        if (totalSlides > 0) {
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+            function startCarousel() {
+                slideInterval = setInterval(nextSlide, 6000);
+            }
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startCarousel();
+            }
+            nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
+            prevButton.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+                resetInterval();
+            });
+            showSlide(currentSlide);
+            startCarousel();
+        }
+    });
+    </script>
+
+    <section class="quick-links py-16 bg-indigo-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Explore More</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <a href="about.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4"> <i class="fas fa-info-circle text-indigo-600 text-3xl"></i> </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">About Us</h3>
+                    <p class="text-gray-600">Learn more about our company, mission, and values</p>
+                </a>
+                <a href="services.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4"> <i class="fas fa-laptop-code text-indigo-600 text-3xl"></i> </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Our Services</h3>
+                    <p class="text-gray-600">Discover our comprehensive range of IT solutions</p>
+                </a>
+                <a href="iso-audit.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4"> <i class="fas fa-shield-alt text-indigo-600 text-3xl"></i> </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">ISO 27K Audit</h3>
+                    <p class="text-gray-600">Information security management system consulting</p>
+                </a>
+                <a href="#contact" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4"> <i class="fas fa-envelope text-indigo-600 text-3xl"></i> </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Contact Us</h3>
+                    <p class="text-gray-600">Get in touch with our team for inquiries</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact py-16 bg-white" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-12 text-gray-900 text-center">Contact Us</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-indigo-600 text-xl mt-1 mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Working Hours</h4> <p class="text-gray-600">Mon - Fri: 9:00 AM to 6:00 PM (IST)</p> </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-indigo-600 text-xl mt-1 mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Office Address</h4> <p class="text-gray-600">Room-14, "Namo-Nivas", Sr.No 36/2,Kharadi, Pune, 411014, Maharashtra, INDIA</p> </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-indigo-600 text-xl mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Mobile Number</h4> <p class="text-gray-600">+91 7720092602</p> </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-indigo-600 text-xl mr-4 w-6 text-center"></i>
+                                <div> <h4 class="font-semibold text-lg">Email</h4> <a href="mailto:contact@ssaptech.com" class="text-indigo-600 hover:underline">contact@ssaptech.com</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form bg-gray-50 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                        <form class="space-y-4">
+                            <div> <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label> <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required> </div>
+                            <div> <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label> <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required> </div>
+                            <div> <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label> <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea> </div>
+                            <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 w-full"> Send Message </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0"> <p class="text-sm">&copy; 2025 SSAP TECH SOLUTIONS LLP. All rights reserved.</p> </div>
+                <div class="social-icons flex space-x-4">
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="Facebook"> <i class="fab fa-facebook-f text-xl"></i> </a>
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="Twitter"> <i class="fab fa-twitter text-xl"></i> </a>
+                    <a href="#" class="text-white hover:text-indigo-400 transition duration-300" aria-label="LinkedIn"> <i class="fab fa-linkedin-in text-xl"></i> </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-24 right-4 w-[calc(100%-2rem)] sm:w-80 max-w-sm bg-white rounded-2xl shadow-lg hidden flex-col transition-transform duration-300 ease-in-out">
+        <div class="bg-indigo-600 text-white p-3 rounded-t-2xl flex justify-between items-center">
+            <span class="font-semibold">SSAP AI Assistant</span>
+            <button id="close-chat" class="text-white text-2xl hover:text-gray-200">&times;</button>
+        </div>
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-2 text-sm"></div>
+        <div class="p-3 border-t flex items-center space-x-2">
+            <input id="chat-input" type="text" placeholder="Ask me anything..." class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <button id="send-btn" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"> <i class="fas fa-paper-plane"></i> </button>
+        </div>
+    </div>
+
+    <button id="chat-toggle" class="fixed bottom-4 right-4 bg-indigo-600 text-white w-16 h-16 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center">
+        <i class="fas fa-comments text-2xl"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
